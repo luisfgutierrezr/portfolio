@@ -9,7 +9,7 @@ interface ProjectsProps {
 }
 
 const projectTechnologies = {
-  "academic-monitoring-system": ["C++", "Java", "GitHub", "Brightspace"],
+  "student-connections-app": ["Kotlin", "Firebase", "Mobile Enterprise", "UX/UI"],
   "crossword-solver-app": ["Next.js", "Vercel", "Supabase", "Figma"],
   "rental-property-management-app": ["Angular", "Spring Boot", "MySQL", "TypeScript"]
 };

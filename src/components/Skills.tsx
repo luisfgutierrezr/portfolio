@@ -4,24 +4,29 @@ import { Column, Heading, Badge, Flex, Text } from "@once-ui-system/core";
 import styles from "./Skills.module.scss";
 
 const skills = {
-  "Programming Languages": {
-    skills: ["JavaScript", "TypeScript", "Java", "Python", "C++", "C#", "Kotlin", "R"],
-    image: "/images/skills/programming.jpg",
-    description: "Core programming languages I use for development"
+  "Mobile Development": {
+    skills: ["Mobile Application Development", "Kotlin", "Mobile Enterprise", "Firebase", "UX/UI"],
+    image: "/images/skills/mobile-development.png",
+    description: "Mobile app development with modern technologies and enterprise features"
   },
   "Web Technologies": {
     skills: ["Angular", "React.js", "Node.js", "Next.js", "HTML", "CSS", "Spring Boot", "JPA"],
-    image: "/images/skills/web-tech.jpg",
+    image: "/images/skills/web-tech.png",
     description: "Modern web development frameworks and technologies"
   },
+  "Programming Languages": {
+    skills: ["JavaScript", "TypeScript", "Java", "Python", "C++", "C#", "R"],
+    image: "/images/skills/programming.jpeg",
+    description: "Core programming languages I use for development"
+  },
   "Cloud & DevOps": {
-    skills: ["AWS", "Vercel", "Firebase", "Docker", "Kubernetes", "Jenkins", "GitHub"],
-    image: "/images/skills/cloud-devops.jpg",
+    skills: ["AWS", "Vercel", "Docker", "Kubernetes", "Jenkins", "GitHub"],
+    image: "/images/skills/cloud-devops.png",
     description: "Cloud platforms and DevOps tools for deployment"
   },
   "Databases": {
     skills: ["MySQL", "PostgreSQL", "MongoDB", "Supabase"],
-    image: "/images/skills/databases.jpg",
+    image: "/images/skills/databases.jpeg",
     description: "Database systems and data management"
   }
 };

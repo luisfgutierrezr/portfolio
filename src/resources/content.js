@@ -42,8 +42,8 @@ const home = {
   headline: <>Building solutions and participating in teams to deliver high quality products</>,
   featured: {
     display: true,
-    title: <>Recent project: <strong className="ml-4">Crossword Solver with AI</strong></>,
-    href: "/work/crossword-solver-app",
+    title: <>Recent project: <strong className="ml-4">Rental Property Management App</strong></>,
+    href: "/work/rental-property-management-app",
   },
   subline: (
     <>
@@ -65,7 +65,7 @@ const about = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {

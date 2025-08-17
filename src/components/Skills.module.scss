@@ -1,0 +1,132 @@
+.skillsSection {
+  padding: 48px 0;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 32px;
+  color: var(--color-text-primary);
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  width: 100%;
+}
+
+.skillCategory {
+  background: var(--color-background-secondary);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--color-border-subtle);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-border-strong);
+  }
+}
+
+.categoryTitle {
+  margin-bottom: 8px;
+  color: var(--color-text-primary);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.categoryDescription {
+  margin-bottom: 16px;
+  color: var(--color-text-weak);
+  line-height: 1.5;
+}
+
+.skillBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.skillBadge {
+  background: var(--color-background-brand-weak) !important;
+  color: var(--color-text-brand-strong) !important;
+  border: 1px solid var(--color-border-brand-subtle);
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: var(--color-background-brand-subtle) !important;
+    transform: scale(1.05);
+  }
+}
+
+.skillImage {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-background-tertiary);
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  
+  .skillCategory:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-background-tertiary) 0%, var(--color-background-secondary) 100%);
+  border: 2px dashed var(--color-border-medium);
+}
+
+.placeholderText {
+  color: var(--color-text-weak);
+  text-align: center;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .skillsSection {
+    padding: 32px 0;
+  }
+  
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .skillCategory {
+    padding: 20px;
+  }
+  
+  .sectionTitle {
+    margin-bottom: 24px;
+  }
+  
+  .skillImage {
+    height: 120px;
+  }
+}

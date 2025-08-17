@@ -2,13 +2,14 @@
 
 import {
   AvatarGroup,
-  Carousel,
   Column,
   Flex,
   Heading,
   SmartLink,
   Text,
+  Badge,
 } from "@once-ui-system/core";
+import styles from "./ProjectCard.module.scss";
 
 interface ProjectCardProps {
   href: string;
@@ -19,6 +20,7 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  technologies?: string[];
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -29,62 +31,76 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  technologies = [],
 }) => {
   return (
-    <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
-      <Flex
-        mobileDirection="column"
-        fillWidth
-        paddingX="s"
-        paddingTop="12"
-        paddingBottom="24"
-        gap="l"
-      >
-        {title && (
-          <Flex flex={5}>
-            <Heading as="h2" wrap="balance" variant="heading-strong-xl">
-              {title}
-            </Heading>
-          </Flex>
-        )}
-        {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
-          <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
-            {description?.trim() && (
-              <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
-                {description}
+    <div className={styles.projectCard}>
+      <div className={styles.cardContent}>
+        <div className={styles.imageContainer}>
+          {images.length > 0 ? (
+            <img 
+              src={images[0]} 
+              alt={title} 
+              className={styles.projectImage}
+            />
+          ) : (
+            <div className={styles.placeholderImage}>
+              <Text variant="body-default-m" className={styles.placeholderText}>
+                {title}
               </Text>
+            </div>
+          )}
+        </div>
+        
+        <div className={styles.textContent}>
+          <Heading as="h3" variant="heading-strong-l" className={styles.title}>
+            {title}
+          </Heading>
+          
+          {description && (
+            <Text variant="body-default-m" className={styles.description}>
+              {description}
+            </Text>
+          )}
+          
+          {technologies.length > 0 && (
+            <div className={styles.technologies}>
+              {technologies.slice(0, 4).map((tech, index) => (
+                <Badge 
+                  key={index}
+                  background="brand-alpha-weak" 
+                  onBackground="neutral-strong"
+                  textVariant="label-default-s"
+                  className={styles.techBadge}
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          )}
+          
+          <Flex gap="16" className={styles.links}>
+            {content?.trim() && (
+              <SmartLink
+                suffixIcon="arrowRight"
+                href={href}
+                className={styles.link}
+              >
+                <Text variant="body-default-s">View Details</Text>
+              </SmartLink>
             )}
-            <Flex gap="24" wrap>
-              {content?.trim() && (
-                <SmartLink
-                  suffixIcon="arrowRight"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={href}
-                >
-                  <Text variant="body-default-s">Read case study</Text>
-                </SmartLink>
-              )}
-              {link && (
-                <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={link}
-                >
-                  <Text variant="body-default-s">View project</Text>
-                </SmartLink>
-              )}
-            </Flex>
-          </Column>
-        )}
-      </Flex>
-    </Column>
+            {link && (
+              <SmartLink
+                suffixIcon="arrowUpRightFromSquare"
+                href={link}
+                className={styles.link}
+              >
+                <Text variant="body-default-s">Live Demo</Text>
+              </SmartLink>
+            )}
+          </Flex>
+        </div>
+      </div>
+    </div>
   );
 };
